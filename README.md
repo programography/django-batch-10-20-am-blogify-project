@@ -1,0 +1,1 @@
+# django-batch-10-20-am-blogify-project
