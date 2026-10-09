@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+
+
+{% block xyz %}
+
+
+<style>
+    .button_x{
+        box-shadow: 3px 4px 4px black;
+        padding-left: 46px !important;
+        padding-right: 46px !important;
+    }
+
+    .button_x:hover{
+        background-color: red !important;
+    }
+</style>
+
+<div style="padding: 16%; padding-top: 1%; background: yellow;">
+    <h2 style="text-align: center; color: red; font-size: 34px; margin-top: 13px; margin-bottom: 15px;">Update Contact Us
+    </h2>
+
+    <div>
+        <form action="/update-contact-data/{{data.id}}" method="post">
+            {% csrf_token %}
+            <div class="row mb-3">
+                <div class="col">
+                    <label class="form-label">First Name</label>
+                    <input type="text" name="f_name" class="form-control" value="{{data.first_name}}" placeholder="enter your first name">
+                </div>
+                <div class="col">
+                    <label class="form-label">Last Name</label>
+                    <input type="text" name="l_name" value="{{data.last_name}}" class="form-control" placeholder="enter your last name">
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col">
+                    <label class="form-label">EMail ID</label>
+                    <input type="email" name="em" value="{{data.email}}" class="form-control" placeholder="enter your email address">
+                </div>
+                <div class="col">
+                    <label class="form-label">Phone Number</label>
+                    <input type="tel" name="ph" value="{{data.phone_number}}" class="form-control" placeholder="enter your phone number">
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col">
+                    <label class="form-label">Date Of Birth</label>
+                    <input type="date" name="dob" value="{{data.dob}}" class="form-control" placeholder="enter your email address">
+                </div>
+                <div class="col">
+                    <label class="form-label">Gender</label>
+                    <select class="form-select" aria-label="Default select example" name="gender">
+                        <option selected>-- Choose Your Gender</option>
+                        <option value="Male" {% if data.gender == "Male" %} selected{% endif %} >Male</option>
+                        <option value="Female" {% if data.gender == "Female" %} selected{% endif %}>Female</option>
+                        <option value="Other" {% if data.gender == "Other" %} selected{% endif %}>Other</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col">
+                    <label class="form-label">Message</label>
+                    <textarea type="text" name="msg" class="form-control" rows="3" placeholder="enter your query..">{{data.message}}</textarea>
+                </div>
+            </div>
+
+            <div style="text-align: center;">
+                <button type="submit" class="btn btn-primary button_x">Update Data</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock xyz %}
+
+
+
+
+
+
+{% block my_title %}Contact Us{% endblock my_title %}

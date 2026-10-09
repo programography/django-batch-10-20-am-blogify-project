@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+
+
+{% block xyz %}
+
+
+<style>
+    .button_x{
+        box-shadow: 3px 4px 4px black;
+        padding-left: 46px !important;
+        padding-right: 46px !important;
+    }
+
+    .button_x:hover{
+        background-color: red !important;
+    }
+</style>
+
+<div style="padding: 16%; padding-top: 1%; background: yellow;">
+    <h2 style="text-align: center; color: red; font-size: 34px; margin-top: 13px; margin-bottom: 15px;">Contact Us Form
+    </h2>
+
+    <div>
+        <form action="/contact-data" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="row mb-3">
+                <div class="col">
+                    <label class="form-label">First Name</label>
+                    <input type="text" name="f_name" class="form-control" placeholder="enter your first name">
+                </div>
+                <div class="col">
+                    <label class="form-label">Last Name</label>
+                    <input type="text" name="l_name" class="form-control" placeholder="enter your last name">
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col">
+                    <label class="form-label">EMail ID</label>
+                    <input type="email" name="em" class="form-control" placeholder="enter your email address">
+                </div>
+                <div class="col">
+                    <label class="form-label">Phone Number</label>
+                    <input type="tel" name="ph" class="form-control" placeholder="enter your phone number">
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col">
+                    <label class="form-label">Date Of Birth</label>
+                    <input type="date" name="dob" class="form-control" placeholder="enter your email address">
+                </div>
+                <div class="col">
+                    <label class="form-label">Gender</label>
+                    <select class="form-select" aria-label="Default select example" name="gender">
+                        <option selected>-- Choose Your Gender</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col">
+                    <label class="form-label">Message</label>
+                    <textarea type="text" name="msg" class="form-control" rows="3" placeholder="enter your query.."></textarea>
+                </div>
+            </div>
+
+            <div class="row mb-4">
+                <label class="form-label">Upload you screenshort here.</label>
+                <input type="file" name="img" class="form-control" accept="image/*">
+            </div>
+
+            <div style="text-align: center;">
+                <button type="submit" class="btn btn-primary button_x">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock xyz %}
+
+
+
+
+
+
+{% block my_title %}Contact Us{% endblock my_title %}

@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+
+{% block my_title %}Login{% endblock my_title %}
+
+
+{% block xyz %}
+
+<style>
+    .main_div {
+        background-color: yellow;
+        margin: 2% 16%;
+        border: 2px solid;
+        border-radius: 14px;
+        padding: 1%;
+    }
+
+    h2 {
+        text-align: center;
+        color: yellow;
+        background-color: red;
+        padding: 1%;
+        border-radius: 16px;
+        margin-left: 32%;
+        margin-right: 32%;
+    }
+
+    .button_x {
+        padding: 1% 10% !important;
+        font-size: 22px !important;
+        background-color: red !important;
+        box-shadow: 4px 5px 6px 2px black;
+    }
+
+    label {
+        color: red;
+    }
+</style>
+
+<div class="main_div">
+    <h2>Login Here</h2>
+    <div>
+
+        <form action="/login" method="post">
+            {% csrf_token %}
+            <div class="mb-3 col">
+                <label class="form-label">Username</label>
+                <input type="text" name="uname" class="form-control" placeholder="enter your username..">
+            </div>
+
+
+
+            <div class="mb-3 col">
+                <label class="form-label">Password</label>
+                <input type="password" name="pass" class="form-control" placeholder="enter your password ..">
+            </div>
+
+            <div style="text-align: center; padding: 2%;">
+                <button type="submit" class="btn btn-success button_x">Submit</button>
+            </div>
+        </form>
+
+    </div>
+</div>
+
+
+{% endblock xyz %}
